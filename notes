@@ -1,0 +1,59 @@
+terminal commands
+
+start server = php app/cosole server:start
+stop server = php app/cosole server:stop
+
+exit folders = c ..
+select folders = cd foldername
+
+
+installing symfony:
+
+ sudo mkdir -p /usr/local/bin
+ sudo curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony
+ sudo chmod a+x /usr/local/bin/symfony
+
+ symfony new my_project 2.8 / for any version change 2.8 to version number
+
+***************************************************
+
+code here Controller // src/appBundle/controller
+<?php 
+namespace AppBundle\Controller; //Bundle name
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; //imports
+use Symfony\Component\HttpFoundation\Response;				//imports
+
+class LuckyController //class name same with filename
+{
+    /**
+     * @Route("/lucky/number") 
+     */
+    public function numberAction() //methods
+    {
+        $number = mt_rand(0, 100); //method executions
+
+        return new Response(
+            '<html><body>Lucky number: '.$number.'</body></html>'
+        );
+    }
+}
+*************************************************
+
+controller = src/appbundle/controller
+view = app/views/foldername
+
+
+**********************************
+creating database configure parameters.yml in app/config/parameters.yml    check userpassword usernames
+
+creating database = php app/console doctrine:database:create
+creating entity = php app/console doctrine:generate:entity
+
+BundleName:Name
+
+execute table to add in database = php app/console doctrine:schema:update --force
+
+generating forms = php app/console doctrine:generate:form appname:classname
+
+
