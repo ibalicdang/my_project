@@ -57,3 +57,16 @@ execute table to add in database = php app/console doctrine:schema:update --forc
 generating forms = php app/console doctrine:generate:form appname:classname
 
 
+************************************
+
+git add name
+git add  . 
+
+
+git status  view
+git commit -m "message"
+git push origin branchname
+
+
+
+
