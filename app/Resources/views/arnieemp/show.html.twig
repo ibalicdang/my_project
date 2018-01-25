@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Arnieemp</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ arnieEmp.id }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ arnieEmp.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Firtsname</th>
+                <td>{{ arnieEmp.firtsName }}</td>
+            </tr>
+            <tr>
+                <th>Middlename</th>
+                <td>{{ arnieEmp.middleName }}</td>
+            </tr>
+            <tr>
+                <th>Birthdate</th>
+                <td>{{ arnieEmp.birthDate }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ arnieEmp.address }}</td>
+            </tr>
+            <tr>
+                <th>Telnumber</th>
+                <td>{{ arnieEmp.telNumber }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ arnieEmp.gender }}</td>
+            </tr>
+            <tr>
+                <th>Dateemployed</th>
+                <td>{{ arnieEmp.dateEmployed }}</td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td>{{ arnieEmp.salary }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('arnieemp_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('arnieemp_edit', { 'id': arnieEmp.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

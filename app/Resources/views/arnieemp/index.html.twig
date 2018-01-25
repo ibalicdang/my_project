@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Arnieemps list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lastname</th>
+                <th>Firtsname</th>
+                <th>Middlename</th>
+                <th>Birthdate</th>
+                <th>Address</th>
+                <th>Telnumber</th>
+                <th>Gender</th>
+                <th>Dateemployed</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for arnieEmp in arnieEmps %}
+            <tr>
+                <td><a href="{{ path('arnieemp_show', { 'id': arnieEmp.id }) }}">{{ arnieEmp.id }}</a></td>
+                <td>{{ arnieEmp.lastName }}</td>
+                <td>{{ arnieEmp.firtsName }}</td>
+                <td>{{ arnieEmp.middleName }}</td>
+                <td>{{ arnieEmp.birthDate }}</td>
+                <td>{{ arnieEmp.address }}</td>
+                <td>{{ arnieEmp.telNumber }}</td>
+                <td>{{ arnieEmp.gender }}</td>
+                <td>{{ arnieEmp.dateEmployed }}</td>
+                <td>{{ arnieEmp.salary }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('arnieemp_show', { 'id': arnieEmp.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('arnieemp_edit', { 'id': arnieEmp.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('arnieemp_new') }}">Create a new arnieEmp</a>
+        </li>
+    </ul>
+{% endblock %}

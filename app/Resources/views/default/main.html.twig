@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+	<h1>My View</h1>
+
+{% for key in employeeinfo %}
+
+	<table>
+		<tr>
+			<th>id</th>
+			<th>lastName</th>
+			<th>firtsName</th>
+			<th>middleName</th>
+			<th>birthDate</th>
+			<th>address</th>
+			<th>telNumber</th>
+			<th>gender</th>
+			<th>dateEmployed</th>
+			<th>salary</th>
+			<th>Action</th>
+		</tr>
+		<tr>
+			<td>{{key.id}}</td>
+			<td>{{key.lastName}}</td>
+			<td>{{key.firtsName}}</td>
+			<td>{{key.middleName}}</td>
+			<td>{{key.birthDate}}</td>
+			<td>{{key.address}}</td>
+			<td>{{key.telNumber}}</td>
+			<td>{{key.gender}}</td>
+			<td>{{key.dateEmployed}}</td>
+			<td>{{key.salary}}</td>
+			<td><a href="{{ absolute_url(asset('')) }}app_dev.php/post/views/{{ key.id }} {{key.lastName}} {{key.firtsName}} {{key.middleName}} {{key.birthDate}} {{key.address}} {{key.telNumber}} {{key.gender}} {{key.dateEmployed}} {{key.salary}}">View</a></td>
+			<td>Edit</td>
+			<td><a href="{{ absolute_url(asset('')) }}app_dev.php/post/delete/{{ key.id }}">Delete</a></td>
+		</tr>
+	</table>
+
+
+{% endfor %}
+<button><a href="/view2">add Employee</a></button>
+{% endblock %}
+
